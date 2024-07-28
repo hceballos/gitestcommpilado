@@ -22,10 +22,10 @@ class ScrapingSigfeReports:
 		ruta_relativa_chromedriver = os.path.join('chromedriver')
 		print(ruta_relativa_chromedriver)
 		# Obtener la ruta absoluta del chromedriver
-		ruta_absoluta_chromedriver = os.path.abspath(ruta_relativa_chromedriver)
-		
+		# ruta_absoluta_chromedriver = os.path.abspath('..//repositorio_clonado//webdriver//chromedriver')
+
 		# Inicializar el driver de Chrome con la ruta absoluta del chromedriver
-		driver = webdriver.Chrome(executable_path=ruta_absoluta_chromedriver)
+		driver = webdriver.Chrome(executable_path='..//repositorio_clonado//webdriver//chromedriver')
 		
 		return driver
 
