@@ -9,7 +9,7 @@ import time
 import re
 import sqlite3
 import pandas as pd
-
+import os
 
 class ScrapingSigfeReports:
 	
