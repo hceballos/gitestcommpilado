@@ -13,12 +13,35 @@ import pandas as pd
 
 
 class ScrapingSigfeReports(object):
+
+
+	def iniciar_driver():
+		"""
+		Inicializa el driver de Chrome con una ruta relativa para el chromedriver.
+		"""
+		# Definir la ruta relativa al chromedriver
+		ruta_relativa_chromedriver = os.path.join('..', 'mejorninez', 'webdriver', 'chromedriver')
+		
+		# Obtener la ruta absoluta del chromedriver
+		ruta_absoluta_chromedriver = os.path.abspath(ruta_relativa_chromedriver)
+		
+		# Inicializar el driver de Chrome con la ruta absoluta del chromedriver
+		driver = webdriver.Chrome(executable_path=ruta_absoluta_chromedriver)
+		
+		return driver
+
+
 	def __init__(self):
 
 		options = Options()
 		options.headless = True
 		
-		driver = webdriver.Chrome(executable_path='..//mejorninez//webdriver//chromedriver')
+
+		driver = iniciar_driver()
+
+
+
+		#driver = webdriver.Chrome(executable_path='..//mejorninez//webdriver//chromedriver')
 
 		self.setUp(driver)
 
