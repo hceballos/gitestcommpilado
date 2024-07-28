@@ -5,7 +5,7 @@ def main():
     print("Ejecutando la parte del código descargada desde GitHub...")
     downloaded_function()
     print("Ejecución finalizada.")
-    print("Alkahest.")
+    print("Alkahest..")
 
 if __name__ == "__main__":
     main()
