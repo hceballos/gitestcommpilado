@@ -33,7 +33,7 @@
 <body>
     <canvas id="matrix"></canvas>
     <div class="content">
-        Página de prueba validación ru
+        Iniciando proceso de validacion de resoluciones de urgencia
     </div>
     <script>
         const canvas = document.getElementById('matrix');
@@ -44,12 +44,9 @@
         
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         const fontSize = 16;
-        const columns = canvas.width / fontSize;
+        const columns = Math.floor(canvas.width / fontSize);
         
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
+        const drops = Array(columns).fill(canvas.height / fontSize);
         
         function draw() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -58,19 +55,28 @@
             ctx.fillStyle = '#00FF00';
             ctx.font = fontSize + 'px monospace';
             
-            for (let i = 0; i < drops.length; i++) {
+            drops.forEach((y, index) => {
                 const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                const x = index * fontSize;
+                ctx.fillText(text, x, y * fontSize);
                 
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[index] = 0;
+                } else {
+                    drops[index]++;
                 }
-                
-                drops[i]++;
-            }
+            });
         }
         
-        setInterval(draw, 33);
+        setInterval(draw, 50);
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for (let i = 0; i < columns; i++) {
+                drops[i] = canvas.height / fontSize;
+            }
+        });
     </script>
 </body>
 </html>
