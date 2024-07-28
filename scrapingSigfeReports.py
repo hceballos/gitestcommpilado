@@ -20,7 +20,7 @@ class ScrapingSigfeReports:
 		"""
 		# Definir la ruta relativa al chromedriver
 		ruta_relativa_chromedriver = os.path.join('..', 'repositorio_clonado', 'webdriver', 'chromedriver')
-		
+		print(ruta_relativa_chromedriver)
 		# Obtener la ruta absoluta del chromedriver
 		ruta_absoluta_chromedriver = os.path.abspath(ruta_relativa_chromedriver)
 		
