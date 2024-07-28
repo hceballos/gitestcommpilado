@@ -12,32 +12,32 @@ import pandas as pd
 
 
 class ScrapingSigfeReports:
-    
-    @staticmethod
-    def iniciar_driver():
-        """
-        Inicializa el driver de Chrome con una ruta relativa para el chromedriver.
-        """
-        # Definir la ruta relativa al chromedriver
-        ruta_relativa_chromedriver = os.path.join('..', 'mejorninez', 'webdriver', 'chromedriver')
-        
-        # Obtener la ruta absoluta del chromedriver
-        ruta_absoluta_chromedriver = os.path.abspath(ruta_relativa_chromedriver)
-        
-        # Inicializar el driver de Chrome con la ruta absoluta del chromedriver
-        driver = webdriver.Chrome(executable_path=ruta_absoluta_chromedriver)
-        
-        return driver
+	
+	@staticmethod
+	def iniciar_driver():
+		"""
+		Inicializa el driver de Chrome con una ruta relativa para el chromedriver.
+		"""
+		# Definir la ruta relativa al chromedriver
+		ruta_relativa_chromedriver = os.path.join('..', 'mejorninez', 'webdriver', 'chromedriver')
+		
+		# Obtener la ruta absoluta del chromedriver
+		ruta_absoluta_chromedriver = os.path.abspath(ruta_relativa_chromedriver)
+		
+		# Inicializar el driver de Chrome con la ruta absoluta del chromedriver
+		driver = webdriver.Chrome(executable_path=ruta_absoluta_chromedriver)
+		
+		return driver
 
-    def __init__(self):
-        options = Options()
-        options.headless = True
-        
-        # Inicializar el driver de Chrome
-        self.driver = self.iniciar_driver()
+	def __init__(self):
+		options = Options()
+		options.headless = True
+		
+		# Inicializar el driver de Chrome
+		self.driver = self.iniciar_driver()
 
-        # Asignar las opciones al driver
-        self.driver.options = options
+		# Asignar las opciones al driver
+		self.driver.options = options
 
 		self.setUp(driver)
 
