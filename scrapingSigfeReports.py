@@ -37,7 +37,7 @@ class ScrapingSigfeReports(object):
 		options.headless = True
 		
 
-		driver = iniciar_driver()
+		driver = self.iniciar_driver()
 
 
 
