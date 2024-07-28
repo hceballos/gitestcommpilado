@@ -1,11 +1,10 @@
-# python mainValidacion.py --operation report
-# DisponibilidadDeDevengo - 121060101
-import sys
-sys.dont_write_bytecode = False  # Activa la generación de archivos .pyc
+def downloaded_function():
+    print("Esta es la parte del código descargado desde GitHub.")
 
-
-
-import mi_script
+def main():
+    print("Ejecutando la parte del código descargada desde GitHub...")
+    downloaded_function()
+    print("Ejecución finalizada.")
 
 if __name__ == "__main__":
-    prueba = mi_script.Prueba()
+    main()
