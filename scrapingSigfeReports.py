@@ -31,8 +31,8 @@ class ScrapingSigfeReports:
 
 	def __init__(self):
 		options = Options()
-		options.headless = True
-		
+		options.headless = False
+		print("Inicializar el driver de Chrome")
 		# Inicializar el driver de Chrome
 		self.driver = self.iniciar_driver()
 
