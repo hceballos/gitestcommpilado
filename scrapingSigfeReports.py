@@ -19,7 +19,7 @@ class ScrapingSigfeReports:
 		Inicializa el driver de Chrome con una ruta relativa para el chromedriver.
 		"""
 		# Definir la ruta relativa al chromedriver
-		ruta_relativa_chromedriver = os.path.join('..', 'repositorio_clonado', 'chromedriver')
+		ruta_relativa_chromedriver = os.path.join('repositorio_clonado', 'chromedriver')
 		print(ruta_relativa_chromedriver)
 		# Obtener la ruta absoluta del chromedriver
 		ruta_absoluta_chromedriver = os.path.abspath(ruta_relativa_chromedriver)
