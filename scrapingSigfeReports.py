@@ -11,7 +11,7 @@ import sqlite3
 import pandas as pd
 import os
 
-class ScrapingSigfeReports:
+class scrapingSigfeReports:
 	
 	@staticmethod
 	def iniciar_driver():
@@ -58,4 +58,4 @@ class ScrapingSigfeReports:
 		time.sleep(5000)
 
 if __name__ == '__main__':
-	ScrapingSigfeReports()
+	scrapingSigfeReports()
