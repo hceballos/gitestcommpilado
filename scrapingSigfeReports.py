@@ -34,6 +34,7 @@ class scrapingSigfeReports:
 		options.headless = False
 		print("Inicializar el driver de Chrome")
 		# Inicializar el driver de Chrome
+		time.sleep(5000)
 		self.driver = self.iniciar_driver()
 
 		# Asignar las opciones al driver
