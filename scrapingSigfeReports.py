@@ -1,59 +1,52 @@
-# chromedriver_path = '/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chrome-mac/Chromium.app/Contents/MacOS/Chromium'
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-import platform
-import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+import platform
+import time
 
 class Main:
-	def __init__(self):
-		chrome_options = webdriver.ChromeOptions()
-		sistema_operativo = platform.system()
+    def __init__(self):
+        chrome_options = Options()
+        sistema_operativo = platform.system()
 
+        if sistema_operativo == 'Darwin':
+            print("Estás utilizando un sistema Mac")
+            
+            # Preferencias para la descarga de archivos
+            prefs = {
+                'download.default_directory': '/Users/hector/Documents/Documents/desarrollo/convenios_y_transferencias/input_excel/resolucionesUrgencia/pdfs',
+                'download.prompt_for_download': False,
+                'download.directory_upgrade': True,
+                'safebrowsing_for_trusted_sources_enabled': False,
+                'safebrowsing.enabled': False
+            }
+            chrome_options.add_experimental_option('prefs', prefs)
 
-		if sistema_operativo == 'Darwin':
-			print("Estás utilizando un sistema Mac")
-			# Configuración de las opciones de Chrome
-			chrome_options = Options()
+            # Argumentos adicionales para la configuración del navegador
+            chrome_options.add_argument('--ignore-certificate-errors')
+            chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
-			# Preferencias para la descarga de archivos
-			prefs = {
-			    'download.default_directory': '/Users/hector/Documents/Documents/desarrollo/convenios_y_transferencias/input_excel/resolucionesUrgencia/pdfs',
-			    'download.prompt_for_download': False,
-			    'download.directory_upgrade': True,
-			    'safebrowsing_for_trusted_sources_enabled': False,
-			    'safebrowsing.enabled': False
-			}
-			chrome_options.add_experimental_option('prefs', prefs)
+            # Especificar la ubicación del binario de Chromium
+            chrome_options.binary_location = '/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chrome-mac/Chromium.app/Contents/MacOS/Chromium'
 
-			# Argumentos adicionales para la configuración del navegador
-			chrome_options.add_argument('--ignore-certificate-errors')
-			chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+            # Ruta al archivo del controlador de Chrome
+            chromedriver_path = '/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chromedriver'
 
-			# Especificar la ubicación del binario de Chromium
-			chrome_options.binary_location = '/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chrome-mac/Chromium.app/Contents/MacOS/Chromium'
+            # Configuración del servicio del controlador de Chrome
+            service = Service(chromedriver_path)
 
-			# Ruta al archivo del controlador de Chrome
-			chromedriver_path = '/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chromedriver'
+            # Inicializar el navegador con las opciones y el servicio configurados
+            driver = webdriver.Chrome(service=service, options=chrome_options)
 
-			# Configuración del servicio del controlador de Chrome
-			service = Service(chromedriver_path)
+            # Maximizar la ventana del navegador
+            driver.maximize_window()
+            print("antes")
+            # Abrir la página web especificada
+            driver.get('https://www.sis.mejorninez.cl/')
 
-			# Inicializar el navegador con las opciones y el servicio configurados
-			driver = webdriver.Chrome(service=service, options=chrome_options)
+            time.sleep(8)
 
-			# Maximizar la ventana del navegador
-			driver.maximize_window()
-			print(" antes ")
-			# Abrir la página web especificada
-			driver.get('https://www.sis.mejorninez.cl/')
-
-			time.sleep(8)
-
-			print(" despues ")
+            print("después")
 
 if __name__ == '__main__':
-	Main()
-
+    Main()
