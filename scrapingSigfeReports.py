@@ -23,7 +23,7 @@ from PyPDF2 import PdfReader
 
 class scrapingSigfeReports():
 
-	def getMac(self, query):
+	def getMac(self):
 		chrome_options = webdriver.ChromeOptions()
 		prefs = {
 			'download.default_directory': '/Users/hector/Documents/Documents/desarrollo/convenios_y_transferencias/input_excel/resolucionesUrgencia/pdfs',
@@ -49,24 +49,6 @@ class scrapingSigfeReports():
 		driver.get("https://a1.sis.mejorninez.cl/mod_financiero/Pagos/wf_InformePagos.aspx")
 		time.sleep(5)
 
-		for index, row in query.iterrows():
-			# print(row)
-			WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "lnkLimpiar"))).click()  # BOTON BUSCAR
-			envioInforProyecto = Envio_Informacion()
-			time.sleep(2.5)
-			envioInforProyecto.envio_Informacion_by_name(driver, "txtPeriodo", row['MESANO'])
-
-			time.sleep(1.5)
-			try:
-				envioInforProyecto.envio_Informacion_by_name(driver, "I_ProyectoCodigo$txtCodigo", row['CODPROYECTO'])
-			except Exception as e:
-				print(f"Error: {e}")
-				envioInforProyecto.envio_Informacion_by_name(driver, "I_ProyectoCodigo$txtCodigo", row['CODPROYECTO'])
-			time.sleep(1.5)
-			WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "btnBuscarPagos"))).click()  # BOTON BUSCAR
-			time.sleep(2.5)
-		
-			TablaPagos(row, driver)
 
 
 
@@ -120,7 +102,7 @@ class scrapingSigfeReports():
 		sistema_operativo = platform.system()
 		if sistema_operativo == 'Darwin':
 			print("Estás utilizando un sistema Mac")
-			driver = self.getMac(query)
+			driver = self.getMac()
 			#driver.close()
 			#driver.quit()
 
