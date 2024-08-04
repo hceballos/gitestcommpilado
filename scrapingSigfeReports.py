@@ -49,7 +49,7 @@ class scrapingSigfeReports():
 		driver.get("https://a1.sis.mejorninez.cl/mod_financiero/Pagos/wf_InformePagos.aspx")
 		time.sleep(5)
 
-	def __init__(self, query):
+	def __init__(self):
 		#self.datos = datos
 		sistema_operativo = platform.system()
 		if sistema_operativo == 'Darwin':
