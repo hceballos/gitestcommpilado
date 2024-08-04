@@ -23,7 +23,7 @@ class Main(object):
 			driver = webdriver.Chrome(service=service)
 			driver.maximize_window()
 			driver.get('https://www.sis.mejorninez.cl/')
-
+			print(drive.url)
 
 if __name__ == '__main__':
 	Main()
