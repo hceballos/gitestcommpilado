@@ -22,6 +22,8 @@ class Main(object):
 			# Pasar el objeto service y las opciones al controlador de Chrome
 			driver = webdriver.Chrome(service=service)
 			driver.maximize_window()
+			driver.get('https://www.sis.mejorninez.cl/')
+
 
 if __name__ == '__main__':
 	Main()
