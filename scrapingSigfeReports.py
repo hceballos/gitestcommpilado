@@ -17,18 +17,18 @@ class Main(object):
 			chrome_options.binary_location = '/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chrome-mac/Chromium.app/Contents/MacOS/Chromium'  # Ruta a la versión de Chromium
 			
 			# Crear el objeto Service para especificar el path del chromedriver
-			service = Service('/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chrome-mac/chromedriver')
+			service = Service('/Users/hector/Documents/Documents/desarrollo/validadorUrgenciasCommpilado/webdriver/chrome-mac/Chromium.app/Contents/MacOS/Chromium')
 			
-			# Pasar el objeto service y las opciones al controlador de Chrome
-			try:
-				driver = webdriver.Chrome(service=service, options=chrome_options)
-				driver.maximize_window()
-				
-				# Intentar abrir la página web especificada
-				driver.get("https://www.sis.mejorninez.cl/")
-				print("Página abierta con éxito")
-			except Exception as e:
-				print(f"Error al abrir la página: {e}")
+            # Pasar el objeto service y las opciones al controlador de Chrome
+            try:
+                driver = webdriver.Chrome(service=service, options=chrome_options)
+                driver.maximize_window()
+                
+                # Intentar abrir la página web especificada
+                driver.get("https://www.sis.mejorninez.cl/")
+                print("Página abierta con éxito")
+            except Exception as e:
+                print(f"Error al abrir la página: {e}")
 
 if __name__ == '__main__':
 	Main()
