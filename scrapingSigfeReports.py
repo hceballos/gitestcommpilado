@@ -1,7 +1,6 @@
 import sqlalchemy
 import pandas as pd
 import glob
-from lib.fuente import Fuente
 from sqlalchemy import create_engine, Table, MetaData, Column, Integer, String
 import re
 import platform
@@ -20,9 +19,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 from PyPDF2 import PdfReader
-from lib.fuente import Fuente
-from lib.elementos import Envio_Informacion, Click
-from lib.reliquidacion80Bis.scrapyProceso.tablaPagos import TablaPagos
 
 
 class scrapingSigfeReports():
