@@ -25,7 +25,7 @@ from lib.elementos import Envio_Informacion, Click
 from lib.reliquidacion80Bis.scrapyProceso.tablaPagos import TablaPagos
 
 
-class main():
+class scrapingSigfeReports():
 
 	def getMac(self, query):
 		chrome_options = webdriver.ChromeOptions()
@@ -139,4 +139,4 @@ class main():
 
 
 if __name__ == '__main__':
-	main()
+	scrapingSigfeReports()
